@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/idx",
+    "pages/type/typeidx",
+    "pages/my/myidx"
+  ],
+  "window": {
+    "navigationBarTitleText": "蜗牛吧趣测试"
+  },
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#d81e06",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/idx",
+        "text": "首页",
+        "iconPath":"images/icons/home0.png",
+        "selectedIconPath":"images/icons/home1.png"
+      },
+      {
+        "pagePath": "pages/type/typeidx",
+        "text": "分类",
+        "iconPath": "images/icons/type0.png",
+        "selectedIconPath": "images/icons/type1.png"
+      },
+      {
+        "pagePath": "pages/my/myidx",
+        "text": "我的",
+        "iconPath": "images/icons/my0.png",
+        "selectedIconPath": "images/icons/my1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
