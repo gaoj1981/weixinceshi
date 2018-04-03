@@ -1,2 +1,4 @@
-<!--pages/my/myidx.wxml-->
-<text>pages/my/myidx.wxml</text>
+
+<image src="{{userInfo.avatarUrl}}" mode='top' style='height:100px;'>
+</image>
+<text class="userinfo-nickname">{{userInfo.nickName}}</text>
