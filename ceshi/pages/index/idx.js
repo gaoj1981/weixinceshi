@@ -1,15 +1,20 @@
 // pages/index/idx.js
 Page({
-
+  testDetail: function (event) {
+    console.log(event);
+    wx.navigateTo({
+      url: '/pages/ceshi/detail?id=' +event.target.id,
+      success:function(){
+      },
+      complete:function(){
+      }
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://s.woniu8.com/img/test/2018/03/201803231214.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -61,7 +66,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var _this = this;
+    wx.request({
+      url: 'https://manage.5dwo.com/out/woniu8/getCarousel.srv',
+      success: function(res){
+        console.log(res.data.resObj);
+        _this.setData({ imgUrls:res.data.resObj});
+      }
+    })
   },
 
   /**

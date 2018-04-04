@@ -2,10 +2,13 @@
   "pages": [
     "pages/index/idx",
     "pages/type/typeidx",
-    "pages/my/myidx"
+    "pages/my/myidx",
+    "pages/ceshi/detail"
   ],
   "window": {
-    "navigationBarTitleText": "蜗牛吧趣测试"
+    "navigationBarTitleText": "蜗牛吧趣测试",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#2c2c2c",
@@ -15,8 +18,8 @@
       {
         "pagePath": "pages/index/idx",
         "text": "首页",
-        "iconPath":"images/icons/home0.png",
-        "selectedIconPath":"images/icons/home1.png"
+        "iconPath": "images/icons/home0.png",
+        "selectedIconPath": "images/icons/home1.png"
       },
       {
         "pagePath": "pages/type/typeidx",

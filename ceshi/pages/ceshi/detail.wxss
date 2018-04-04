@@ -1,0 +1,50 @@
+/* pages/ceshi/detail.wxss */
+image{width: 100%;}
+.animation-element {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  font-size: 17px;
+  left: 0;
+  letter-spacing: 0.1em;
+  line-height: 30px;
+  max-width: 90%;
+  padding: 10px;
+  position: absolute;
+  top: 80px;
+  z-index: 10;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.panel{
+  border: 1px solid #ff7585;
+  border-radius: 4px;
+}
+.panel-heading {
+    padding: 10px 15px;
+    background-color: #ff7585;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #FFFFFF;
+}
+.panel-body {
+    padding: 15px;
+}
+.txt-view{
+  margin: 18px 0px;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.txt-des{
+  color: #555;
+}
+.btn-success {
+    background-color: #ff7585;
+    border-color: #ff7585;
+    color: #ffffff;
+}

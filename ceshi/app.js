@@ -13,7 +13,7 @@ App({
   onError: function (msg) {
     console.log(msg)
   },
-  globalData: {userInfo:null},
+  globalData: { userInfo: null},
   getCurOpenId: function () {
     try {
       var curOpenId = wx.getStorageSync('stor_openId');

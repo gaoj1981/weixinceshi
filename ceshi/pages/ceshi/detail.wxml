@@ -1,0 +1,13 @@
+<image src="{{staticImg}}{{testObj.ttImg}}" mode='scaleToFill'>
+</image>
+<view class="animation-element" animation="{{animation}}">{{testObj.ttName}}</view>
+<view class='panel'>
+  <view class='panel-heading'>{{testObj.ttName}}</view>
+  <view class='panel-body'>
+    <view class='txt-view'>
+      <text class='txt-des'>{{testObj.ttDesc}}</text>
+    </view>
+    <button class='btn-success'>开始分析</button>
+  </view>
+</view>
+      
