@@ -1,7 +1,7 @@
 // pages/index/idx.js
+var app = getApp();
 Page({
   testDetail: function (event) {
-    console.log(event);
     wx.navigateTo({
       url: '/pages/ceshi/detail?id=' +event.target.id,
       success:function(){
@@ -69,8 +69,10 @@ Page({
     var _this = this;
     wx.request({
       url: 'https://manage.5dwo.com/out/woniu8/getCarousel.srv',
+      data: {
+        curOpenId: app.getCurOpenId()
+      },
       success: function(res){
-        console.log(res.data.resObj);
         _this.setData({ imgUrls:res.data.resObj});
       }
     })

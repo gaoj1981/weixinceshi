@@ -1,0 +1,9 @@
+<!--pages/ceshi/end.wxml-->
+<view class='{{view1css}}'>
+    <view style='position:absolute;top:40%;left:50%;width:20px;height:20px;background-color:#ff7585;border-radius: 50%;' animation="{{animationData}}"></view>
+    <view style='position:absolute;top:50%;width:100%;text-align:center;color:#fff;'>正在分析中</view>
+</view>
+
+<view class='{{view2css}}'>
+{{resObj}}
+</view>

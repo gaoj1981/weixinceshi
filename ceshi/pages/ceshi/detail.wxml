@@ -1,13 +1,29 @@
-<image src="{{staticImg}}{{testObj.ttImg}}" mode='scaleToFill'>
-</image>
-<view class="animation-element" animation="{{animation}}">{{testObj.ttName}}</view>
-<view class='panel'>
-  <view class='panel-heading'>{{testObj.ttName}}</view>
-  <view class='panel-body'>
-    <view class='txt-view'>
-      <text class='txt-des'>{{testObj.ttDesc}}</text>
+<view class='{{view1css}}'>
+  <image src="{{staticImg}}{{testObj.ttImg}}" mode='scaleToFill'></image>
+  <view class="animation-element" animation="{{animation}}">
+    {{testObj.ttName}}
+  </view>
+  <view class='panel'>
+    <view class='panel-heading'>{{testObj.ttName}}</view>
+    <view class='panel-body'>
+      <view class='txt-view'>
+        <text class='txt-des'>{{testObj.ttDesc}}</text>
+      </view>
+      <button class='btn-success' bindtap="startTest">开始分析</button>
     </view>
-    <button class='btn-success'>开始分析</button>
+  </view>
+</view>
+<view class='{{view2css}}'>
+  <view class='view-progress'>
+    <progress percent="{{rateVal}}" color="pink" stroke-width="12" />
+  </view>
+  <view class='panel'>
+    <view class='panel-heading'><text class='view2-txt'>{{question}}</text></view>
+    <view class='panel-body'>
+      <block wx:for="{{answer}}" wx:key="key">
+        <button type="default" class='btn-seltest' bindtap="nextTest" data-gonext='{{item.next}}' data-scval='{{item.score}}'>{{item.title}}</button>
+      </block>
+    </view>
   </view>
 </view>
       

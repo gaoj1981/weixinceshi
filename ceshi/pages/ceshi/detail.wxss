@@ -48,3 +48,15 @@ image{width: 100%;}
     border-color: #ff7585;
     color: #ffffff;
 }
+.view-progress{padding: 15px;}
+.view-progress progress{
+  height: 20px;
+  border-radius: 4px;
+}
+.view2-txt{
+  font-size: 16px;
+  color: inherit;
+}
+.btn-seltest{
+  margin: 10px 0px;
+}

@@ -5,7 +5,7 @@ App({
     this.getCurOpenId();
   },
   onShow: function (options) {
-    console.log('======Do something when show.' + this.getCurOpenId());
+    console.log('======Do something when show.');
   },
   onHide: function () {
     console.log('======Do something when hide.');

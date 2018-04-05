@@ -3,7 +3,8 @@
     "pages/index/idx",
     "pages/type/typeidx",
     "pages/my/myidx",
-    "pages/ceshi/detail"
+    "pages/ceshi/detail",
+    "pages/ceshi/end"
   ],
   "window": {
     "navigationBarTitleText": "蜗牛吧趣测试",
