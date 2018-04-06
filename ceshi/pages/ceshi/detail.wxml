@@ -15,13 +15,20 @@
 </view>
 <view class='{{view2css}}'>
   <view class='view-progress'>
-    <progress percent="{{rateVal}}" color="pink" stroke-width="12" />
+    <progress percent="{{rateVal}}" color="#ED0385" stroke-width="12" />
   </view>
   <view class='panel'>
     <view class='panel-heading'><text class='view2-txt'>{{question}}</text></view>
     <view class='panel-body'>
+      <rich-text nodes="{{imgAsk}}"></rich-text>
       <block wx:for="{{answer}}" wx:key="key">
-        <button type="default" class='btn-seltest' bindtap="nextTest" data-gonext='{{item.next}}' data-scval='{{item.score}}'>{{item.title}}</button>
+        <block wx:if="{{item.imgAns}}">
+          <image class='btn-seltest' bindtap="nextTest" data-gonext='{{item.next}}' data-scval='{{item.score}}' src='{{item.imgAns}}'></image>
+        </block>
+        <block wx:else>
+          <button type="default" class='btn-seltest' bindtap="nextTest" data-gonext='{{item.next}}' data-scval='{{item.score}}'>{{item.title}}</button>
+        </block>
+        
       </block>
     </view>
   </view>

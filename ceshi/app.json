@@ -8,8 +8,8 @@
   ],
   "window": {
     "navigationBarTitleText": "蜗牛吧趣测试",
-    "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#ED0385",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#2c2c2c",

@@ -1,3 +1,8 @@
 page{
-  background-color: lightgray;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
 }
+.btn-group{width:100%;margin-top:10px;display: flex;}
+.btn-group view{width:50%;padding: 10px;}
+.btn-group button{font-size: 14px;height:30px;line-height:30px;}

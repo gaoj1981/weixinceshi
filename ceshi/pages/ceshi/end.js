@@ -6,29 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    animationData: {},
     view1css: 'need-show',
     view2css: 'need-hide',
+    ttName:'',
+    ttImg:'',
+    tsDesc:'',
+    ttId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var animation = wx.createAnimation({
-      duration: 3000,
-      timingFunction: 'ease',
-    })
-
-    this.animation = animation
-
-    animation.scale(2, -2).scale(-2, 2).scale(2, -2).scale(-2, 2).step()
-    animation.rotateY(-180).rotateY(180).rotateY(-180).rotateY(180).step()
-    this.setData({
-      animationData: animation.export()
-    })
+      duration: 2000,
+      timingFunction: "linear",
+      delay: 0
+    });
+    animation.scale(0.5, 0.5).scale(2, 2).scale(0.5, 0.5).scale(2, 2).scale(0.5, 0.5).scale(2, 2).step();
+    this.setData({ animation: animation.export() })
 
     var _this = this;
+    this.setData({ttId:options.id,ttName:options.title,ttImg:options.img});
     wx.request({
       url: 'https://manage.5dwo.com/out/woniu8/getTestRes.srv',
       data: {
@@ -38,15 +38,21 @@ Page({
       },
       success: function (result) {
         var resObj = result.data.resObj;
-        console.log(resObj);
         wx.setNavigationBarTitle({
-          title: resObj.tsNote
-        });
-        _this.setData({resObj: resObj});
+          title: resObj.ttTpl + resObj.ttRes
+        })
+        _this.setData({ resObj: resObj, tsDesc: app.convertHtmlToText(resObj.tsDesc)});
         setTimeout(function () {
           _this.setData({ view1css: 'need-hide', view2css: 'need-show' });
-        }, 3000)
-        
+        }, 2000)
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff',
+          animation: {
+            duration: 2000,
+            timingFunc: 'easeIn'
+          }
+        });
       }
     })
   },
@@ -98,5 +104,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  testAgain:function(){
+    wx.redirectTo({
+      url: '/pages/ceshi/detail?id='+this.data.ttId,
+    })
   }
 })

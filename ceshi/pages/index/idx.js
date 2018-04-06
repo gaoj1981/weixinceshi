@@ -2,6 +2,7 @@
 var app = getApp();
 Page({
   testDetail: function (event) {
+    console.log(event);
     wx.navigateTo({
       url: '/pages/ceshi/detail?id=' +event.target.id,
       success:function(){
@@ -15,17 +16,10 @@ Page({
    */
   data: {
     imgUrls: [],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    iconSize: [20, 30, 40, 50, 60, 70],
-    iconColor: [
-      'red', 'orange', 'yellow', 'green', 'rgb(0,255,255)', 'blue', 'purple'
-    ],
-    iconType: [
-      'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
-    ]
+    focusImg: 'http://s.woniu8.com/img/weixin/wxtest.jpg',
+    testList:[],
+    curPg:1,
+    isHavePage:true,
   },
   changeIndicatorDots: function (e) {
     this.setData({
@@ -52,30 +46,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
     var _this = this;
     wx.request({
       url: 'https://manage.5dwo.com/out/woniu8/getCarousel.srv',
       data: {
         curOpenId: app.getCurOpenId()
       },
-      success: function(res){
-        _this.setData({ imgUrls:res.data.resObj});
+      success: function (res) {
+        _this.setData({ imgUrls: res.data.resObj });
       }
     })
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    var _this = this;
+    wx.request({
+      url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
+      data: {
+        curOpenId: app.getCurOpenId(),
+        fetchPage: _this.data.curPg
+      },
+      success: function (res) {
+        _this.setData({ testList: res.data.resObj });
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
   },
 
   /**
@@ -103,7 +109,48 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if(this.data.isHavePage){
+
+      var _this = this;
+      wx.showLoading({
+        title: '',
+        success: function () {
+          var nextPg = _this.data.curPg + 1;
+          wx.request({
+            url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
+            data: {
+              curOpenId: app.getCurOpenId(),
+              fetchPage: nextPg
+            },
+            success: function (res) {
+              if (res.data.resObj.length > 0){
+                var testList = _this.data.testList;
+                testList = testList.concat(res.data.resObj);
+                _this.setData({ testList: testList, curPg: nextPg });
+                wx.hideLoading();
+              }else{
+                wx.hideLoading();
+                wx.showToast({
+                  title: '没有了',
+                  icon: 'none',
+                  duration: 1000
+                })
+                _this.setData({ isHavePage: false, curPg: nextPg });
+              }
+            }
+          })
+
+        }
+      })
+
+    }else{
+      wx.showToast({
+        title: '没有了',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
   },
 
   /**
@@ -111,5 +158,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  searchTest:function(){
+    wx.showToast({
+      title: '暂无相应内容',
+      icon: 'loading',
+      duration: 2000
+    })
   }
+
 })

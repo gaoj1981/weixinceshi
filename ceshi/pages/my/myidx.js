@@ -20,9 +20,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo: app.globalData.userInfo
+    app.getCurOpenId();
+    var _this = this;
+    //调用登录接口
+    wx.login({
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            _this.setData({
+              userInfo: res.userInfo
+            });
+          }
+        })
+      }
     });
+    
     //发起网络请求
     wx.request({
       url: 'https://manage.5dwo.com/out/wx/test.srv',

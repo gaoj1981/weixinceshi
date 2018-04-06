@@ -105,19 +105,22 @@ Page({
   startTest:function(){
     this.setData({ view1css: 'need-hide',view2css:'need-show' });
     var xlist = this.data.testAsks;
-    var isScore = this.data.isScore;
-    if (isScore == "0") {
-      
-    } else if (isScore == "1") {
-      this.data.scoreTal = 0;
-      this.setData({ question: xlist[1].question, answer: xlist[1].answer})
-    }
+    this.setData({ question: xlist[1].question, scoreTal:0 });
+    this.answerView4Img(1);
+    this.imgAskView(1);
   },
   nextTest: function (event){
     var nextVal = event.target.dataset.gonext;
-    var scoreTal = this.data.scoreTal + event.target.dataset.scval / 1;
+    var scoreTal = 0;
+    var isScore = this.data.isScore;
+    if (isScore == "1") {
+      scoreTal = this.data.scoreTal + event.target.dataset.scval / 1;
+    }
+
     if (!isNaN(nextVal)) {
-      this.setData({ question: this.data.testAsks[nextVal].question, answer: this.data.testAsks[nextVal].answer });
+      this.setData({ question: this.data.testAsks[nextVal].question});
+      this.answerView4Img(nextVal);
+      this.imgAskView(nextVal);
       var lenRate = (nextVal / this.data.talNums) * 100;
       if (lenRate > 99) { lenRate = 98; }
       this.setData({rateVal:lenRate,scoreTal:scoreTal});
@@ -125,15 +128,53 @@ Page({
       this.setData({ rateVal: 100 });
       var xlist0Ans = this.data.testAsks[0].answer;
       var iptName = "A";
-      for (var item in xlist0Ans) {
-        if (scoreTal >= xlist0Ans[item] / 1) {
-          iptName = item;
+      if (isScore == "1") {
+        for (var item in xlist0Ans) {
+          if (scoreTal >= xlist0Ans[item] / 1) {
+            iptName = item;
+            break;
+          }
         }
+      }else if(isScore == "0"){
+        iptName = nextVal;
       }
-      console.log(scoreTal + ' jump to '+iptName);
-      wx.navigateTo({
-        url: '/pages/ceshi/end?id=' + this.data.testObj.ttId + '&res=' + iptName
+      
+      wx.redirectTo({
+        url: '/pages/ceshi/end?id=' + this.data.testObj.ttId + '&res=' + iptName + '&title=' + this.data.testObj.ttName + '&img=' + app.globalData.staticImg + this.data.testObj.ttImg
       })
     }
+  },
+
+  imgAskView:function(index){
+    var xlist = this.data.testAsks;
+    if (xlist[index].img.length > 1) {
+      var imgAsk = [{
+        name: 'img',
+        attrs: {
+          class: '',
+          style: 'width:100%;',
+          src: xlist[index].img
+        }
+      }]
+      this.setData({ imgAsk: imgAsk });
+    }else{
+      this.setData({ imgAsk: [] });
+    }
+  },
+
+  answerView4Img:function(index){
+    var xlist = this.data.testAsks;
+    var answer = xlist[index].answer;
+    var title = "";
+    var imgStr = "";
+    for (var item in answer) {
+      title = answer[item].title;
+      if(title.indexOf('<img') == 0){
+        imgStr = title.substring(title.indexOf('http'));
+        imgStr = imgStr.substring(0,imgStr.indexOf("'>"));
+        answer[item].imgAns = imgStr;
+      }
+    }
+    this.setData({ answer: answer });
   }
 })
