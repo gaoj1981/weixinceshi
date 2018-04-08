@@ -15,8 +15,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    staticImg: app.globalData.staticImg,
     imgUrls: [],
-    focusImg: 'http://s.woniu8.com/img/weixin/wxtest.jpg',
+    focusImg: app.globalData.staticImg+'/weixin/wxtest.jpg',
     testList:[],
     curPg:1,
     isHavePage:true,

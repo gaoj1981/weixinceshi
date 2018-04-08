@@ -3,7 +3,7 @@
   autoplay="true" interval="3000" duration="1000" indicator-active-color="#ED0385">
   <block wx:for="{{imgUrls}}" wx:key="key">
     <swiper-item>
-      <image src="http://s.woniu8.com/img{{item.ttImg}}" id="{{item.ttId}}" class="slide-image" bindtap="testDetail" />
+      <image src="{{staticImg}}{{item.ttImg}}" id="{{item.ttId}}" class="slide-image" bindtap="testDetail" />
     </swiper-item>
   </block>
 </swiper>
@@ -17,7 +17,7 @@
 
   <view wx:for="{{testList}}" wx:key="key" class='view-loop' bindtap="testDetail">
     <view style='width:110px;' id="{{item.ttId}}">
-      <image id="{{item.ttId}}" src="http://s.woniu8.com/img{{item.ttSmlImg}}" />
+      <image id="{{item.ttId}}" src="{{staticImg}}{{item.ttSmlImg}}" />
     </view>
     <view style='padding:10px;' id="{{item.ttId}}">
       <text id="{{item.ttId}}" class='title'>{{item.ttName}}</text>

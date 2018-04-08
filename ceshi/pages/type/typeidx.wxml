@@ -1,2 +1,49 @@
-<!--pages/type/typeidx.wxml-->
-<text>pages/type/typeidx.wxml</text>
+<view class="tab">  
+  <view class="tab-left" bindtap="tabFun" style='height:{{curHeight}}px'>  
+    <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="tab-hd01" data-id="0">
+      全部
+    </view>  
+    <view class="{{tabArr.curHdIndex=='1002'? 'active' : ''}}" id="tab-hd02" data-id="1002">趣味</view>  
+    <view class="{{tabArr.curHdIndex=='1003'? 'active' : ''}}" id="tab-hd03" data-id="1003">个性</view>  
+    <view class="{{tabArr.curHdIndex=='1004'? 'active' : ''}}" id="tab-hd04" data-id="1004">爱情</view>  
+    <view class="{{tabArr.curHdIndex=='1005'? 'active' : ''}}" id="tab-hd05" data-id="1005">职场</view>  
+    <view class="{{tabArr.curHdIndex=='1006'? 'active' : ''}}" id="tab-hd06" data-id="1006">能力</view>  
+    <view class="{{tabArr.curHdIndex=='1007'? 'active' : ''}}" id="tab-hd07" data-id="1007">社交</view>  
+  </view>  
+  
+  <view class="tab-right" style='width:{{curWidth - 70}}px;'>  
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}" bindscrolltolower='scrollBottom'>
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>  
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1002'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>  
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1003'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1004'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1005'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1006'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1007'? 'active' : ''}}">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+  </view>
+</view>
+
+<template name="testResList">
+      <view wx:for="{{testList}}" wx:key="key" class='view-loop' bindtap="testDetail">
+        <view style='width:110px;' id="{{item.ttId}}">
+          <image id="{{item.ttId}}" src="{{staticImg}}{{item.ttSmlImg}}" />
+        </view>
+        <view style='padding:10px;' id="{{item.ttId}}">
+          <text id="{{item.ttId}}" class='title' style='width: {{curWidth - 190}}px;'>{{item.ttName}}</text>
+          <text id="{{item.ttId}}" class='desc'>{{item.ttDesc}}</text>
+        </view>
+      </view>
+</template>

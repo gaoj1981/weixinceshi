@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    staticImg: app.globalData.staticImg,
     testObj:{},
     testAsks:[],
     question:'',
     answer:{},
-    staticImg: "https://s.woniu8.com/img",
     view1css:'need-show',
     view2css:'need-hide',
     talNums:0,

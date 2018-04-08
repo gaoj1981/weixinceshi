@@ -11,7 +11,7 @@ App({
   onError: function (msg) {
     console.log(msg)
   },
-  globalData: { userInfo: null, staticImg:"https://s.woniu8.com/img"},
+  globalData: { userInfo: null, staticImg:"https://manage.5dwo.com/img"},
   getCurOpenId: function () {
     try {
       var curOpenId = wx.getStorageSync('stor_openId');

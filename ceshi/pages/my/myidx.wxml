@@ -1,4 +1,4 @@
-<view style='background:url(http://s.woniu8.com/img/weixin/userbg.jpg) no-repeat;background-size:100% 100%;width:100%;height:150px;filter: grayscale(10%);'></view>
+<view style='background:url("{{staticImg}}/weixin/userbg.jpg") no-repeat;background-size:100% 100%;width:100%;height:150px;filter: grayscale(10%);'></view>
 <image src="{{userInfo.avatarUrl}}" mode='aspectFill' style='height:80px;width:80px;border-radius: 50%;position:absolute;top:30px;left:10px;'>
 </image>
 <text class="userinfo-nickname" style='position:absolute;color:#fff;left:100px;top:80px;'>欢迎回来，{{userInfo.nickName}}</text>

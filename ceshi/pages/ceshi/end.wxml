@@ -1,52 +1,62 @@
 <!--pages/ceshi/end.wxml-->
-<view class='{{view1css}}'>
-    <view style='position:absolute;top:40%;left:50%;width:20px;height:20px;background-color:#ED0385;border-radius: 50%;' animation="{{animation}}"></view>
-    <view style='position:absolute;top:50%;width:100%;text-align:center;color:#ED0385;'>
+<view class='{{view1css}}' style='background-color:#EFF1F1;'>
+    <image class='test-reswait' src='{{staticImg}}/weixin/loading/loadRes.gif'></image>
+    <view class='reswaiting'>
     稍等，分析中...
     </view>
 </view>
 
 <view class='{{view2css}}'>
 
-  <view style='width:95%;margin:0 auto;'>
+  <view class='test-result'>
 
-    <view style='width:100%;text-align:center;background-color:#ED0385;height:30px;line-height:30px;color:#fff;font-size:14px;'>
+    <view class='testres-title'>
       {{ttName}}
     </view>
 
-    <view style='width:100%;height:170px;background:url("{{ttImg}}") no-repeat;background-size:100% 100%;'>
+    <view class='testres-img' style='background:url("{{ttImg}}") no-repeat;background-size:100% 100%;'>
 
-      <view style='width:30%;float:left;display:flex;align-items:center;height:170px;'>
-        <image style='border-radius: 50%;margin:5px;float:left;width:100px;height:100px;' src='https://s.woniu8.com/img{{resObj.tsImg}}'></image>
+      <view class='testres-imgleft'>
+        <image src='{{staticImg}}{{resObj.tsImg}}'></image>
       </view>
-      <view style='width:70%;float:right;display:flex;align-items:center;height:170px;'>
-        <text style='display:block;vertical-align: middle;font-weight:bold;color:red;text-align:left;margin:5px;padding:10px;background-color:rgba(242,242,242,0.8);border-radius:5%;'>{{resObj.tsNote}}</text>
+      <view class='testres-imgright'>
+        <text>{{resObj.tsNote}}</text>
       </view>
 
     </view>
 
-    <view style='width:100%;text-align:left;background-color:#F2F2F2;height:200px;line-height:24px;'>
-      <text style='display:block;font-size:14px;font-style:italic;letter-spacing:1px;padding:5px;color:#333;'>{{tsDesc}}</text>
+    <view class='testres-note'>
+      <text>{{tsDesc}}</text>
     </view>
 
-    <view style='width:100%;position:relative;background-color:#FFD92C;height:80px;'>
-      <image src='http://static.woniu8.com/images/m/qrcode/qrcode_258.jpg' style='width:60px;height:60px;position:absolute;top:10px;left:20px;'></image>
-      <text style='display:block;position:absolute;font-size:14px;color:#FF3333;top:20px;left:90px;'>{{ttName}}</text>
-      <text style='display:block;position:absolute;font-size:10px;color:#FFF;top:50px;left:90px;background-color:#000;padding:0px 2px;'> 长按识别二维码来测测吧 </text>
-      <text style='display:block;position:absolute;font-size:10px;top:50px;right:5px;'>——蜗牛吧趣测试</text>
+    <view class='testres-qr'>
+      <image src='http://static.woniu8.com/images/m/qrcode/qrcode_258.jpg'></image>
+      <text class='testres-qrtname'>{{ttName}}</text>
+      <text class='testres-qrview'> 长按识别二维码来测测吧 </text>
+      <text class='testres-qrceshi'>——蜗牛吧趣测试</text>
     </view>
 
     <view class='btn-group'>
 
       <view>
-        <button bindtap='testAgain'>再测一次</button>
+        <button open-type='share'>分享给好友</button>
       </view>
       <view>
-        <button open-type='share'>分享给好友</button>
+        <button bindtap='saveResImg'>保存结果图片</button>
+      </view>
+      <view>
+        <button bindtap='testAgain'>再测一次</button>
       </view>
       
     </view>
 
   </view>
 
+</view>
+
+<view style='height:200px;'>
+</view>
+
+<view class='{{view3css}}'>
+<canvas style="width: 100%;height:480px;" canvas-id="firstCanvas"></canvas>
 </view>

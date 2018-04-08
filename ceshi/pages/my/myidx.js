@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    staticImg: app.globalData.staticImg,
     userInfo: {},
     iconSize: [20, 30, 40, 50, 60, 70],
     iconColor: [
