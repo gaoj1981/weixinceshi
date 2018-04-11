@@ -1,1 +1,33 @@
 /* pages/my/myidx.wxss */
+page{
+  background-color: #f2f2f2;
+}
+view{
+  font-size: 14px;
+}
+
+.userbg{
+  background-size:100% 100%;width:100%;height:150px;filter: grayscale(10%);
+}
+.userinfoimg{
+  height:80px;width:80px;border-radius: 50%;position:absolute;top:30px;left:10px;
+}
+.userinfotxt{
+  position:absolute;color:#fff;left:100px;top:80px;
+}
+
+.view-action{
+  width:95%;margin:0 auto;background-color:#fff;margin-top:20px;
+}
+.view-action navigator{
+  height:50px;line-height:50px;display:flex;
+}
+.view-action navigator view{
+  display:block;margin-left:60px;width:90%;
+}
+.view-action navigator i{display:block;text-align:center;width:10%;color:#999}
+
+
+.bottom-border{
+  border-bottom:1px solid #f2f2f2;
+}

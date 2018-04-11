@@ -21,35 +21,59 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('loadload.............')
     app.getCurOpenId();
-    var _this = this;
-    //调用登录接口
-    wx.login({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            _this.setData({
-              userInfo: res.userInfo
-            });
-          }
-        })
-      }
-    });
-    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
+    console.log('readyready.............')
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var _this = this;
+    wx.getUserInfo({
+      success: function (res) {
+        _this.setData({
+          userInfo: res.userInfo
+        });
+      },
+      fail: function () {
+        wx.showModal({
+          title: '警告',
+          content: '您点击了拒绝授权,将无法正常显示个人信息,点击确定重新获取授权。',
+          success: function (res) {
+            if (res.confirm) {
+              wx.openSetting({
+                success: (res) => {
+                  if (res.authSetting["scope.userInfo"]) {
+                    wx.getUserInfo({
+                      success: function (res) {
+                        var userInfo = res.userInfo;
+                        _this.setData({
+                          nickName: userInfo.nickName,
+                          avatarUrl: userInfo.avatarUrl,
+                        })
+                      }
+                    })
+                  }
+                }
+              })
+            }else{
+              wx.switchTab({
+                url: '/pages/index/idx'
+              })
+            }
+          }
+        })
+      }
+    });
   },
 
   /**

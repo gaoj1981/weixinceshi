@@ -4,7 +4,8 @@
     "pages/type/typeidx",
     "pages/my/myidx",
     "pages/ceshi/detail",
-    "pages/ceshi/end"
+    "pages/ceshi/end",
+    "pages/my/advise/iupage"
   ],
   "window": {
     "navigationBarTitleText": "蜗牛吧趣测试",

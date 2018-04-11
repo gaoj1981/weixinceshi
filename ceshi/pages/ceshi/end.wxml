@@ -39,10 +39,13 @@
 
     <view class='btn-group'>
       <view>
+        <button bindtap='saveResImg'>生成卡片</button>
+      </view>
+      <view>
         <button bindtap='testAgain'>再测一次</button>
       </view>
       <view>
-        <button bindtap='saveResImg'>生成结果卡片</button>
+        <button bindtap='goIndex'>回到首页</button>
       </view>
     </view>
 
@@ -62,8 +65,10 @@
           <text id="{{item.ttId}}" class='desc'>{{item.ttDesc}}</text>
         </view>
       </view>
+      <button type="default"  bindtap='goTypeIdx'>点击获取更多测试</button>
     </view>
   </view>
+  
 </view>
 
 <view class='{{view3css}}'>

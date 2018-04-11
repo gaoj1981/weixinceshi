@@ -250,12 +250,10 @@ Page({
 
     var _this = this;
     cxtRes.draw(false, function (e) {
-      console.log('draw callback')
       wx.canvasToTempFilePath({
         canvasId: 'secondCanvas',
         success: function (res) {
           _this.setData({ resImgCav: res.tempFilePath,view3css:'need-hide' });
-          console.log(res.tempFilePath)
         }
       })
 
@@ -272,7 +270,6 @@ Page({
   },
 
   testDetail: function (event) {
-    console.log(event);
     wx.navigateTo({
       url: '/pages/ceshi/detail?id=' + event.target.id,
       success: function () {
@@ -282,4 +279,16 @@ Page({
     })
   },
   
+  goIndex: function (event){
+    wx.switchTab({
+      url: '/pages/index/idx'
+    })
+  },
+
+  goTypeIdx: function (event) {
+    wx.switchTab({
+      url: '/pages/type/typeidx'
+    })
+  }
+
 })
