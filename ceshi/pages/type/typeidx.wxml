@@ -9,28 +9,32 @@
     <view class="{{tabArr.curHdIndex=='1005'? 'active' : ''}}" id="tab-hd05" data-id="1005">职场</view>  
     <view class="{{tabArr.curHdIndex=='1006'? 'active' : ''}}" id="tab-hd06" data-id="1006">能力</view>  
     <view class="{{tabArr.curHdIndex=='1007'? 'active' : ''}}" id="tab-hd07" data-id="1007">社交</view>  
+    <view class="{{tabArr.curHdIndex=='1008'? 'active' : ''}}" id="tab-hd08" data-id="1008">穿越</view>
   </view>  
   
   <view class="tab-right" style='width:{{curWidth - 70}}px;'>  
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}" bindscrolltolower='scrollBottom'>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="0">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>  
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1002'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1002'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1002">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>  
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1003'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1003'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1003">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1004'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1004'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1004">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1005'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1005'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1005">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1006'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1006'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1006">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>
-    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1007'? 'active' : ''}}">
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1007'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1007">
+      <template is="testResList" data="{{...tplObj}}"/>
+    </scroll-view>
+    <scroll-view scroll-y style='width:100%;height:{{curHeight}}px' class="right-item {{tabArr.curBdIndex=='1008'? 'active' : ''}}" bindscrolltolower='scrollBottom' data-id="1008">
       <template is="testResList" data="{{...tplObj}}"/>
     </scroll-view>
   </view>

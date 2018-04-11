@@ -11,7 +11,7 @@ App({
   onError: function (msg) {
     console.log(msg)
   },
-  globalData: { userInfo: null, staticImg:"https://manage.5dwo.com/img"},
+  globalData: { userInfo: null, staticImg:"https://swoniu8.5dwo.com/img"},
   getCurOpenId: function () {
     try {
       var curOpenId = wx.getStorageSync('stor_openId');
@@ -63,6 +63,7 @@ App({
       }
     })
   },
+  
   convertHtmlToText: function convertHtmlToText(inputText) {
     var returnText = "" + inputText;
     returnText = returnText.replace(/<\/div>/ig, '\r\n');

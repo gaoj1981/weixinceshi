@@ -9,7 +9,8 @@ Page({
     staticImg: app.globalData.staticImg,
     view1css: 'need-show',
     view2css: 'need-hide',
-    view3css: 'need-show',
+    view3css: 'need-hide',
+    sharecss: 'need-hide',
     ttName:'',
     ttImg:'',
     tsDesc:'',
@@ -17,7 +18,10 @@ Page({
     ttImgCav: '',
     tsImgCav: '',
     qrImgCav:'',
-    resImgCav:''
+    resImgCav:'',
+    downloadImgNum: 0,
+    testList: [],
+    curPg: 1,
   },
 
   /**
@@ -25,6 +29,7 @@ Page({
    */
   onLoad: function (options) {
 
+    console.log('监听页面加载')
     var _this = this;
     this.setData({ttId:options.id,ttName:options.title,ttImg:options.img});
     wx.request({
@@ -40,9 +45,6 @@ Page({
           title: resObj.ttTpl + resObj.ttRes
         })
         _this.setData({ resObj: resObj, tsDesc: app.convertHtmlToText(resObj.tsDesc) });
-        setTimeout(function () {
-          _this.setData({ view1css: 'need-hide', view2css: 'need-show' });
-        }, 2000)
         wx.setNavigationBarColor({
           frontColor: '#000000',
           backgroundColor: '#ffffff',
@@ -57,7 +59,13 @@ Page({
           success: function (res) {
             // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
             if (res.statusCode === 200) {
-              _this.setData({ tsImgCav: res.tempFilePath });
+              var downNum = _this.data.downloadImgNum + 1;
+
+              _this.setData({ tsImgCav: res.tempFilePath, downloadImgNum:downNum });
+              if (downNum == 3) {
+                _this.setData({ view1css: 'need-hide', view2css: 'need-show', view3css: 'need-show', sharecss: 'need-show' });
+                _this.initCanvas();
+              }
             }
           }
         })
@@ -66,7 +74,13 @@ Page({
           success: function (res) {
             // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
             if (res.statusCode === 200) {
-              _this.setData({ ttImgCav: res.tempFilePath });
+              var downNum = _this.data.downloadImgNum + 1;
+
+              _this.setData({ ttImgCav: res.tempFilePath, downloadImgNum: downNum });
+              if (downNum == 3) {
+                _this.setData({ view1css: 'need-hide', view2css: 'need-show', view3css: 'need-show', sharecss: 'need-show' });
+                _this.initCanvas();
+              }
             }
           }
         })
@@ -75,7 +89,13 @@ Page({
           success: function (res) {
             // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
             if (res.statusCode === 200) {
-              _this.setData({ qrImgCav: res.tempFilePath });
+              var downNum = _this.data.downloadImgNum + 1;
+
+              _this.setData({ qrImgCav: res.tempFilePath, downloadImgNum: downNum });
+              if (downNum == 3) {
+                _this.setData({ view1css: 'need-hide', view2css: 'need-show',view3css:'need-show',sharecss:'need-show' });
+                _this.initCanvas();
+              }
             }
           }
         })
@@ -88,7 +108,21 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log('监听页面初次渲染完成')
+    var _this = this;
+    wx.request({
+      url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
+      data: {
+        curOpenId: app.getCurOpenId(),
+        fetchPage: _this.data.curPg,
+        limit: 10,
+        jxFlg:0,
+        listType:1,
+      },
+      success: function (res) {
+        _this.setData({ testList: res.data.resObj });
+      }
+    })
   },
 
   /**
@@ -96,6 +130,7 @@ Page({
    */
   onShow: function () {
 
+    console.log('监听页面显示')
   },
 
   /**
@@ -140,9 +175,8 @@ Page({
   },
 
   initCanvas:function(){
-
     var curWidth = wx.getSystemInfoSync().windowWidth;
-    var cxtRes = wx.createCanvasContext('firstCanvas');
+    var cxtRes = wx.createCanvasContext('secondCanvas');
     cxtRes.setFillStyle('#ED0385');
     cxtRes.fillRect(0, 0, curWidth, 30);
 
@@ -214,65 +248,38 @@ Page({
     cxtRes.setFillStyle('#222');
     cxtRes.fillText("——蜗牛吧趣测试", curWidth - 10, 460);
 
-    cxtRes.draw();
+    var _this = this;
+    cxtRes.draw(false, function (e) {
+      console.log('draw callback')
+      wx.canvasToTempFilePath({
+        canvasId: 'secondCanvas',
+        success: function (res) {
+          _this.setData({ resImgCav: res.tempFilePath,view3css:'need-hide' });
+          console.log(res.tempFilePath)
+        }
+      })
 
+    });
+
+    return true;
   },
 
   saveResImg: function () {
-    wx.showLoading({});
-    if(this.data.resImgCav.length < 1){
-      this.setData({view3css:'need-show'});
-      this.initCanvas();
-      var _this = this;
-      wx.canvasToTempFilePath({
-        canvasId: 'firstCanvas',
-        success: function (res) {
-          _this.setData({resImgCav: res.tempFilePath});
-
-          wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
-            success: function () {
-              _this.setData({ view3css: 'need-hide' });
-              wx.hideLoading();
-              wx.showToast({
-                title: '已保存至相册',
-                icon: 'success',
-                duration: 2000
-              })
-            },
-            fail: function () {
-              _this.setData({ view3css: 'need-hide' });
-              wx.hideLoading();
-              wx.showToast({
-                title: '图片未保存',
-                icon: 'none',
-                duration: 2000
-              })
-            }
-          })
-        }
-      })
-    }else{
-      wx.saveImageToPhotosAlbum({
-        filePath: this.data.resImgCav,
-        success: function () {
-          wx.hideLoading();
-          wx.showToast({
-            title: '图片已保存',
-            icon: 'success',
-            duration: 2000
-          })
-        },
-        fail: function () {
-          wx.hideLoading();
-          wx.showToast({
-            title: '图片未保存',
-            icon: 'none',
-            duration: 2000
-          })
-        }
-      })
-    }
-
+    wx.previewImage({
+      current: this.data.resImgCav,
+      urls: [this.data.resImgCav],
+    })
   },
+
+  testDetail: function (event) {
+    console.log(event);
+    wx.navigateTo({
+      url: '/pages/ceshi/detail?id=' + event.target.id,
+      success: function () {
+      },
+      complete: function () {
+      }
+    })
+  },
+  
 })

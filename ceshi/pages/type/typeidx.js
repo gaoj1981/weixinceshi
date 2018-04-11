@@ -14,6 +14,7 @@ Page({
       curBdIndex: 0
     },
     curPg: 1,
+    isHavePage: true,
     tplObj: {
       testList: [],
       staticImg: app.globalData.staticImg,
@@ -80,7 +81,6 @@ Page({
   tabFun: function (e) {
     //获取触发事件组件的dataset属性  
     var _datasetId = e.target.dataset.id;
-    console.log("----" + _datasetId + "----");
     var _obj = {};
     _obj.curHdIndex = _datasetId;
     _obj.curBdIndex = _datasetId;
@@ -120,7 +120,50 @@ Page({
     })
   },
   
-  scrollBottom:function(){
-    console.log(111111111111)
+  scrollBottom: function (event){
+    if (this.data.isHavePage) {
+      var typeId = event.target.dataset.id;
+      var _this = this;
+      wx.showLoading({
+        title: '',
+        success: function () {
+          var nextPg = _this.data.curPg + 1;
+          wx.request({
+            url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
+            data: {
+              curOpenId: app.getCurOpenId(),
+              fetchPage: nextPg,
+              typeId: typeId,
+              limit: 20,
+            },
+            success: function (res) {
+              if (res.data.resObj.length > 0) {
+                var testList = _this.data.tplObj.testList;
+                testList = testList.concat(res.data.resObj);
+                _this.setData({ tplObj: { testList: testList, staticImg: app.globalData.staticImg, curWidth: wx.getSystemInfoSync().windowWidth }, curPg: nextPg });
+                wx.hideLoading();
+              } else {
+                wx.hideLoading();
+                wx.showToast({
+                  title: '“蜗”是有底线的',
+                  icon: 'none',
+                  duration: 1000
+                })
+                _this.setData({ isHavePage: false, curPg: nextPg });
+              }
+            }
+          })
+
+        }
+      })
+
+    } else {
+      wx.showToast({
+        title: '“蜗”是有底线的',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
   }
 })

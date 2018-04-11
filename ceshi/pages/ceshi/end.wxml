@@ -33,30 +33,39 @@
       <image src='http://static.woniu8.com/images/m/qrcode/qrcode_258.jpg'></image>
       <text class='testres-qrtname'>{{ttName}}</text>
       <text class='testres-qrview'> 长按识别二维码来测测吧 </text>
-      <text class='testres-qrceshi'>——蜗牛吧趣测试</text>
+      <text class='testres-qrceshi'></text>
+      <button open-type='share' class='testres-share {{sharecss}}'>分享给好友</button>
     </view>
 
     <view class='btn-group'>
-
-      <view>
-        <button open-type='share'>分享给好友</button>
-      </view>
-      <view>
-        <button bindtap='saveResImg'>保存结果图片</button>
-      </view>
       <view>
         <button bindtap='testAgain'>再测一次</button>
       </view>
-      
+      <view>
+        <button bindtap='saveResImg'>生成结果卡片</button>
+      </view>
     </view>
 
   </view>
 
-</view>
-
-<view style='height:200px;'>
+  <view class='test-tuijian'>
+    <view class='headtitle'>
+      <text>今日与你有缘的TOP10测试</text>
+    </view>
+    <view class='list'>
+      <view wx:for="{{testList}}" wx:key="key" class='view-loop' bindtap="testDetail">
+        <view style='width:110px;' id="{{item.ttId}}">
+          <image id="{{item.ttId}}" src="{{staticImg}}{{item.ttSmlImg}}" />
+        </view>
+        <view style='padding:10px;' id="{{item.ttId}}">
+          <text id="{{item.ttId}}" class='title'>{{item.ttName}}</text>
+          <text id="{{item.ttId}}" class='desc'>{{item.ttDesc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 
 <view class='{{view3css}}'>
-<canvas style="width: 100%;height:480px;" canvas-id="firstCanvas"></canvas>
+<canvas style="width: 100%;height:480px;" canvas-id="secondCanvas"></canvas>
 </view>

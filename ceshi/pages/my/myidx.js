@@ -36,13 +36,6 @@ Page({
       }
     });
     
-    //发起网络请求
-    wx.request({
-      url: 'https://manage.5dwo.com/out/wx/test.srv',
-      data: {
-        curOpenId: app.getCurOpenId()
-      }
-    })
   },
 
   /**

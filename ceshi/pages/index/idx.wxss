@@ -41,8 +41,9 @@ page{
   border-radius:5%;width:90px;height:70px;margin:10px;
 }
 .view-loop .title{
-  font-size:14px;display:block;color:#333;height:30px;line-height:30px;
+  font-size:14px;display:block;color:#333;height:30px;line-height:30px;width:200px;
+  text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
 }
 .view-loop .desc{
-  font-size:10px;display:block;color:#999;width:100%;height:40px;overflow:hidden;text-overflow:ellipsis;
+  font-size:10px;display:block;color:#999;width:99%;height:40px;overflow:hidden;text-overflow:ellipsis;
 }

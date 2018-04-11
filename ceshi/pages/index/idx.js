@@ -2,7 +2,6 @@
 var app = getApp();
 Page({
   testDetail: function (event) {
-    console.log(event);
     wx.navigateTo({
       url: '/pages/ceshi/detail?id=' +event.target.id,
       success:function(){
@@ -70,7 +69,8 @@ Page({
       url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
       data: {
         curOpenId: app.getCurOpenId(),
-        fetchPage: _this.data.curPg
+        fetchPage: _this.data.curPg,
+        limit:20,
       },
       success: function (res) {
         _this.setData({ testList: res.data.resObj });
@@ -121,7 +121,8 @@ Page({
             url: 'https://manage.5dwo.com/out/woniu8/getTestList.srv',
             data: {
               curOpenId: app.getCurOpenId(),
-              fetchPage: nextPg
+              fetchPage: nextPg,
+              limit: 20,
             },
             success: function (res) {
               if (res.data.resObj.length > 0){
@@ -132,7 +133,7 @@ Page({
               }else{
                 wx.hideLoading();
                 wx.showToast({
-                  title: '没有了',
+                  title: '“蜗”是有底线的',
                   icon: 'none',
                   duration: 1000
                 })
@@ -146,7 +147,7 @@ Page({
 
     }else{
       wx.showToast({
-        title: '没有了',
+        title: '“蜗”是有底线的',
         icon: 'none',
         duration: 1000
       })
