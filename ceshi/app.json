@@ -6,8 +6,7 @@
     "pages/ceshi/detail",
     "pages/ceshi/end",
     "pages/my/advise/iupage",
-    "pages/my/test/mytest",
-    "pages/my/collect/coltest"
+    "pages/my/test/mytest"
   ],
   "window": {
     "navigationBarTitleText": "蜗牛吧趣测试",

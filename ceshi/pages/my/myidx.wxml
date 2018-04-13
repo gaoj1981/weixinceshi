@@ -5,12 +5,12 @@
 
 <view class='view-action'>
 
-  <navigator style='background:url("{{staticImg}}/weixin/icons/tested.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/test/mytest" class='bottom-border'>
+  <navigator style='background:url("{{staticImg}}/weixin/icons/tested.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/test/mytest?col0test1=1" class='bottom-border'>
   <view>我测过的</view>
   <i>></i>
   </navigator>
 
-  <navigator style='background:url("{{staticImg}}/weixin/icons/collect.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/collect/coltest" class='bottom-border'>
+  <navigator style='background:url("{{staticImg}}/weixin/icons/collect.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/test/mytest?col0test1=0" class='bottom-border'>
   <view>我的收藏</view>
   <i>></i>
   </navigator>
