@@ -1,1 +1,4 @@
 /* pages/my/advise/iupage.wxss */
+page{
+  font-size:14px;
+}

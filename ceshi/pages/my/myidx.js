@@ -21,8 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('loadload.............')
     app.getCurOpenId();
+    wx.setNavigationBarTitle({
+      title: '蜗牛吧个人中心',
+    })
   },
 
   /**

@@ -1,4 +1,5 @@
 // pages/my/advise/iupage.js
+var app = getApp();
 Page({
 
   /**
@@ -12,7 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({
+      title: '蜗牛吧留言',
+    })
   },
 
   /**
@@ -62,5 +65,53 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  bindFormSubmit:function(e){
+    var advise = e.detail.value.advise;
+    if(advise.length<1){
+      wx.showToast({
+        title: '请说点什么吧',
+        icon: 'none',
+        duration: 2000,
+      })
+    } else if (advise.lenth > 500){
+      wx.showToast({
+        title: '你说的有点多',
+        icon: 'none',
+        duration: 2000,
+      })
+    }else{
+      var _this = this;
+      wx.request({
+        url: 'https://manage.5dwo.com/out/wx/insAdvise.srv',
+        data: {
+          curOpenId: app.getCurOpenId(),
+          advise: advise,
+        },
+        success: function (res) {
+        },
+        complete:function(){
+          wx.showToast({
+            title: '留言成功',
+            icon: 'success',
+            duration: 1000,
+            complete:function(){
+              setTimeout(
+                function () {
+                  wx.switchTab({
+                    url: '/pages/my/myidx',
+                  })
+                },
+                1000
+              )
+            }
+          })
+        }
+      })
+    }
+    console.log(e)
+    console.log(e.detail.value.textarea)
+  },
+
 })

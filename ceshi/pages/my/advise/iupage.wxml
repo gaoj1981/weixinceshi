@@ -1,2 +1,6 @@
-<!--pages/my/advise/iupage.wxml-->
-<text>pages/my/advise/iupage.wxml</text>
+<view class="section">
+  <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="亲，但说无坊..." name="advise"/>
+    <button form-type="submit"> 提交 </button>
+  </form>
+</view>

@@ -22,13 +22,14 @@ Page({
     downloadImgNum: 0,
     testList: [],
     curPg: 1,
+    colState:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({ colState: options.colState});
     console.log('监听页面加载')
     var _this = this;
     this.setData({ttId:options.id,ttName:options.title,ttImg:options.img});
@@ -288,6 +289,56 @@ Page({
   goTypeIdx: function (event) {
     wx.switchTab({
       url: '/pages/type/typeidx'
+    })
+  },
+
+  colTest: function (event) {
+
+    var colState = this.data.colState;
+    var colFlg = 1;
+    if(colState==1){
+      colFlg = 0;
+    }
+    var _this = this;
+    wx.request({
+      url: 'https://manage.5dwo.com/out/woniu8/colTest.srv',
+      data: {
+        ttId: this.data.ttId,
+        ttName: this.data.ttName,
+        colFlg: colFlg,
+        curOpenId: app.getCurOpenId()
+      },
+      success: function (result) {
+        _this.setData({colState:colFlg});
+        var title = '收藏成功';
+        if(colFlg==0){
+          title = '已取消收藏';
+        }
+        wx.showToast({
+          title: title,
+          icon: 'success',
+          duration: 1000
+        })
+      }
+    })
+    
+  },
+
+  zanTest:function(){
+    this.setData({ zanState:1});
+  },
+
+  shareTest:function(){
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+
+  goComment:function(){
+    wx.showToast({
+      title: '评论功能陆续开放中...',
+      icon: 'none',
+      duration: 1000
     })
   }
 

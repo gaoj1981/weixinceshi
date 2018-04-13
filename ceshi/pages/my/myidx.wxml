@@ -5,16 +5,28 @@
 
 <view class='view-action'>
 
-  <navigator style='background:url("/images/icons/chat.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/advise/iupage" class='bottom-border'>
+  <navigator style='background:url("{{staticImg}}/weixin/icons/tested.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/test/mytest" class='bottom-border'>
+  <view>我测过的</view>
+  <i>></i>
+  </navigator>
+
+  <navigator style='background:url("{{staticImg}}/weixin/icons/collect.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/collect/coltest" class='bottom-border'>
+  <view>我的收藏</view>
+  <i>></i>
+  </navigator>
+
+  <navigator style='background:url("{{staticImg}}/weixin/icons/gift.png") no-repeat;background-size:30px 30px;background-position:10px 10px;'>
+  <view>我的礼物(0)</view>
+  <i>></i>
+  </navigator>
+
+</view>
+
+<view class='view-action'>
+  <navigator style='background:url("{{staticImg}}/weixin/icons/contact.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/advise/iupage" class='bottom-border'>
   <view>臣妾要进谏</view>
   <i>></i>
   </navigator>
-
-  <navigator style='background:url("/images/icons/gift.png") no-repeat;background-size:30px 30px;background-position:10px 10px;'>
-  <view>礼物赏赐 0</view>
-  <i>></i>
-  </navigator>
-
 </view>
 
 <button open-type="contact" style='position:fixed;bottom:0px;width:100%;'>进入客服会话</button>

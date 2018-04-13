@@ -1,0 +1,6 @@
+var substring=function(str,start,end){
+  return str.substring(start,end);
+}
+module.exports = {
+  substring: substring,
+};

@@ -140,7 +140,7 @@ Page({
       }
       
       wx.redirectTo({
-        url: '/pages/ceshi/end?id=' + this.data.testObj.ttId + '&res=' + iptName + '&title=' + this.data.testObj.ttName + '&img=' + app.globalData.staticImg + this.data.testObj.ttImg
+        url: '/pages/ceshi/end?id=' + this.data.testObj.ttId + '&res=' + iptName + '&title=' + this.data.testObj.ttName + '&img=' + app.globalData.staticImg + this.data.testObj.ttImg + '&colState=' + this.data.testObj.colState
       })
     }
   },

@@ -34,23 +34,48 @@
       <text class='testres-qrtname'>{{ttName}}</text>
       <text class='testres-qrview'> 长按识别二维码来测测吧 </text>
       <text class='testres-qrceshi'></text>
-      <button open-type='share' class='testres-share {{sharecss}}'>分享给好友</button>
+      <button open-type='share' class='need-hide testres-share {{sharecss}}'>分享给好友</button>
     </view>
 
     <view class='btn-group'>
       <view>
-        <button bindtap='saveResImg'>生成卡片</button>
-      </view>
-      <view>
         <button bindtap='testAgain'>再测一次</button>
       </view>
       <view>
-        <button bindtap='goIndex'>回到首页</button>
+        <button bindtap='saveResImg'>生成结果卡片</button>
       </view>
     </view>
 
+    <view class='icon-group'>
+      <view bindtap='goIndex'>
+        <text class='iconfont icon-homefill'></text>
+        <text>首页</text>
+      </view>
+      <view bindtap='colTest'>
+        <text wx:if="{{colState == 1}}" class='iconfont icon-shoucang'></text>
+        <text wx:else class='iconfont icon-shoucang1'></text>
+        <text>收藏</text>
+      </view>
+      <view bindtap='zanTest'>
+        <text wx:if="{{zanState == 1}}" class='iconfont icon-zan'></text>
+        <text wx:else class='iconfont icon-zan1'></text>
+        <text>点赞</text>
+      </view>
+      <view bindtap='shareTest'>
+        <button class='btn1' open-type='share'>
+          <text class='iconfont icon-fenxiang'></text>
+        </button>
+        <button class='btn2' open-type='share'>
+          <text>分享</text>
+        </button>
+      </view>
+      <view bindtap='goComment'>
+        <text class='iconfont icon-commentfill'></text>
+        <text>评论</text>
+      </view>
+    </view>
   </view>
-
+  
   <view class='test-tuijian'>
     <view class='headtitle'>
       <text>今日与你有缘的TOP10测试</text>

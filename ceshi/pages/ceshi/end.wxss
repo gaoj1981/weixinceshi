@@ -7,6 +7,33 @@ page{
 .btn-group view{width:50%;padding: 2px;}
 .btn-group button{font-size: 14px;height:30px;line-height:30px;padding-left:15px;padding-right:15px;}
 
+.icon-group{width:100%;margin-top:5px;display: flex;}
+.icon-group view{width:20%;}
+.icon-group text{display: block;font-size:14px;}
+.icon-group .iconfont{font-size:30px;}
+.icon-group .icon-homefill{color: darkmagenta;}
+.icon-group .icon-shoucang{color:red;}
+.icon-group .icon-shoucang1{color:red;}
+.icon-group .icon-zan{color: deeppink;}
+.icon-group .icon-zan1{color: deeppink;}
+.icon-group .icon-fenxiang{color: green}
+.icon-group .icon-commentfill{color: lightgray;}
+
+.icon-group button{
+  width:100%;background-color:#fff;padding:0px;
+  margin: 0 auto;
+}
+.icon-group .btn1{
+  line-height:30px;height:30px;
+}
+.icon-group .btn2{
+  line-height:25px;height:20px;
+}
+.icon-group button::after{
+border: none;
+}
+
+
 .test-reswait{position:absolute;top:45%;left:46%;width:20px;height:20px;background-color:#ED0385;border-radius: 50%;}
 .reswaiting{position:absolute;top:50%;width:100%;text-align:center;color:#ED0385;}
 
