@@ -162,12 +162,21 @@ Page({
   
   },
 
-  searchTest:function(){
-    wx.showToast({
-      title: '暂无相应内容',
-      icon: 'loading',
-      duration: 2000
-    })
+  searchTest:function(e){
+    var searchWord = e.detail.value;
+    if(searchWord.length<1){
+      wx.showToast({
+        title: '请输入要查询的内容',
+        icon: 'none',
+        duration: 1000
+      })
+    }else{
+      wx.showToast({
+        title: '暂无相应内容',
+        icon: 'loading',
+        duration: 1000
+      })
+    }
   }
 
 })

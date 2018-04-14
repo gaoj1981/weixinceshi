@@ -8,9 +8,9 @@
   </block>
 </swiper>
 
-<view class='idx-search' bindtap="searchTest">
+<view class='idx-search'>
   <input type='text' placeholder-style="color:#999;" placeholder="输入要查询的内容..." confirm-type='search' bindconfirm='searchTest' />
-  <icon type="search" size='30' color='#ED0385' />
+  <icon type="search" size='20' color='#ED0385' />
 </view>
 
 <view>
