@@ -1,0 +1,29 @@
+<!--pages/my/resp/search.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class='idx-search'>
+  <input type='text' value='{{searchWord}}' placeholder-style="color:#999;" placeholder="输入要查询的内容..." confirm-type='search' bindconfirm='searchTest' focus="{{focus}}" />
+  <icon type="search" size='20' color='#ED0385' />
+</view>
+
+<view style='width:100%;margin:0 auto;'>
+
+  <view wx:for="{{testList}}" wx:key="key" class='view-loop' bindtap="testDetail" id="{{item.ttId}}">
+    <view id="{{item.ttId}}" class='imgView'>
+      <image id="{{item.ttId}}" src="{{staticImg}}{{item.ttSmlImg}}" />
+    </view>
+      <view class='txtView' id="{{item.ttId}}">
+        <view id="{{item.ttId}}">
+          <text id="{{item.ttId}}" class='title'>{{item.ttName}}</text>
+        </view>
+        <view id="{{item.ttId}}">
+          <text id="{{item.ttId}}" class='iconstar'>★★★★★</text>
+          <text id="{{item.ttId}}" class='viewnum'>{{tools.ceshiView(item.ttView)}}万人在测</text>
+        </view>
+        <view id="{{item.ttId}}" class='desc'>
+          <text id="{{item.ttId}}">{{item.ttDesc}}</text>
+        </view>
+        <view id="{{item.ttId}}" class='goTest'>去测</view>
+      </view>
+  </view>
+
+</view>

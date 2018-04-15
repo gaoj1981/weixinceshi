@@ -97,5 +97,5 @@
 </view>
 
 <view class='{{view3css}}'>
-<canvas style="width: 100%;height:480px;" canvas-id="secondCanvas" bindtap='saveResImg'></canvas>
+<canvas style="width: 100%;height:480px;" canvas-id="secondCanvas" ></canvas>
 </view>

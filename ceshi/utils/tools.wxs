@@ -1,6 +1,11 @@
 var substring=function(str,start,end){
   return str.substring(start,end);
 }
+var ceshiView = function (ttView) {
+  var num = ttView/10000;
+  return num.toFixed(2);
+}
 module.exports = {
   substring: substring,
+  ceshiView: ceshiView,
 };

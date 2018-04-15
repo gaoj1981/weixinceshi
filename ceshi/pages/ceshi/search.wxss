@@ -1,0 +1,35 @@
+/* pages/my/resp/search.wxss */
+
+.idx-search{
+  width:100%;
+  position:relative;
+  margin:5px 0px;
+  background-color:#fff;
+  height:38px;
+  text-align:left;
+  display:flex;
+}
+.idx-search input{
+  width:99%;
+  padding:5px;
+  border-bottom:1px solid #CCC;
+  height:30px;
+  line-height:30px;
+  color:#333;
+}
+.idx-search icon{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+.view-loop{
+  position: relative;height:60px;width:98%;margin:0 auto;padding: 11px 0px;border-bottom: 1px solid #f7f7f7;display:flex;
+}
+.view-loop .imgView{margin-right: 10px;margin-left: 8px;}
+.view-loop .imgView image{border-radius: 12px;height: 60px;width: 60px;}
+.view-loop .txtView{color: #9b9b9b;overflow: hidden;height: 60px;}
+.view-loop .txtView .title{color: #333;font-weight: 400;font-size: 14px;margin-bottom: 2px;margin-top: -2px;}
+.view-loop .txtView .iconstar{color: #ffa016;font-size: 14px;}
+.view-loop .txtView .viewnum{font-size: 12px;margin-right: 4px;margin-left: 4px;}
+.view-loop .txtView .desc{line-height: 1;font-size: 12px;margin-top: 0;padding-right: 50px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.view-loop .goTest{position: absolute;display: block;width: auto;color: #ff7585;min-width: 36px;right: 20px;top: 30px;padding: 0 1px;border: 1px solid;border-radius: 3px;font-size:14px;}

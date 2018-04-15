@@ -45,5 +45,5 @@ page{
   text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
 }
 .view-loop .desc{
-  font-size:10px;display:block;color:#999;width:99%;height:40px;overflow:hidden;text-overflow:ellipsis;
+  font-size:10px;display:block;color:#999;width:99%;height:30px;overflow:hidden;text-overflow:ellipsis;
 }
