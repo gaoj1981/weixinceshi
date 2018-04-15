@@ -28,6 +28,9 @@ Page({
    */
   onLoad: function (options) {
     this.searchTestInit(options.searchWord);
+    wx.setNavigationBarTitle({
+      title: '搜索结果',
+    })
   },
 
   /**

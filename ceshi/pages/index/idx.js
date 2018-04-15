@@ -20,6 +20,7 @@ Page({
     testList:[],
     curPg:1,
     isHavePage:true,
+    curWidth: wx.getSystemInfoSync().windowWidth,
   },
   changeIndicatorDots: function (e) {
     this.setData({

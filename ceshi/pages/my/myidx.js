@@ -45,6 +45,15 @@ Page({
         _this.setData({
           userInfo: res.userInfo
         });
+        wx.request({
+          url: 'https://manage.5dwo.com/out/wx/perfectUser.srv',
+          data:{
+            curOpenId: app.getCurOpenId(),
+            exUserInfo:res.userInfo
+          },
+          success:function(res){
+          }
+        })
       },
       fail: function () {
         wx.showModal({

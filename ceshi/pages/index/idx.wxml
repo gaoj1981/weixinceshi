@@ -1,10 +1,11 @@
 <!--pages/index/idx.wxml-->
-<swiper indicator-dots="true"
+<swiper indicator-dots="true" wx:for-index="index"
   autoplay="true" interval="3000" duration="1000" indicator-active-color="#ED0385">
   <block wx:for="{{imgUrls}}" wx:key="key">
     <swiper-item>
       <image src="{{staticImg}}{{item.ttImg}}" id="{{item.ttId}}" class="slide-image" bindtap="testDetail" />
     </swiper-item>
+    <text class='slide-txt' style='left:{{index * curWidth + (curWidth-150)/2}}px;'>{{item.ttName}}</text>
   </block>
 </swiper>
 

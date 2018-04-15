@@ -5,6 +5,9 @@ page{
 .slide-image{
   width: 100%;
 }
+.slide-txt{
+  position:absolute;color:#fff;top:110px;text-align:center;display:block;min-width:150px;height:16px;overflow:hidden;font-size:14px;line-height:16px;background:rgba(54,54,54,0.6);border-radius:10px;
+}
 
 .idx-search{
   width:100%;
