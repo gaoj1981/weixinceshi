@@ -16,17 +16,23 @@
   </navigator>
 
   <navigator style='background:url("{{staticImg}}/weixin/icons/gift.png") no-repeat;background-size:30px 30px;background-position:10px 10px;'>
-  <view>我的礼物(0)</view>
+  <view>我的奖励(¥0.00)</view>
   <i>></i>
   </navigator>
 
 </view>
 
 <view class='view-action'>
+  <navigator style='background:url("{{staticImg}}/weixin/icons/biz.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/biz/contact" class='bottom-border'>
+  <view>商务合作</view>
+  <i>></i>
+  </navigator>
+  
   <navigator style='background:url("{{staticImg}}/weixin/icons/contact.png") no-repeat;background-size:30px 30px;background-position:10px 10px;' url="/pages/my/advise/iupage" class='bottom-border'>
   <view>臣妾要进谏</view>
   <i>></i>
   </navigator>
+
 </view>
 
-<button open-type="contact" style='position:fixed;bottom:0px;width:100%;'>进入客服会话</button>
+<button open-type="contact" style='position:fixed;bottom:0px;width:100%;display:none;'>进入客服会话</button>

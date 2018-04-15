@@ -1,0 +1,4 @@
+<view style='width:100%;text-align:center;padding:40px 0px;border-bottom:8px solid #f2f2f2;'>
+<image src='http://static.woniu8.com/images/woniu8quceshi_small.png' style='width:100px;height:100px;'></image>
+<text style='color:#333;font-weight:bold;display:block;margin-top:10px;'>蜗牛吧趣测试</text>
+</view>
