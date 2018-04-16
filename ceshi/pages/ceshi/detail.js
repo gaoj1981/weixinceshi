@@ -17,13 +17,16 @@ Page({
     isScore:0,
     nextVal: 2,
     scoreTal: 0,
-    rateVal:0
+    rateVal: 0,
+    pingList: [],
+    ttId:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ "ttId": options.id});
     var _this = this;
     wx.request({
       url: 'https://manage.5dwo.com/out/woniu8/getTestObj.srv',
@@ -58,14 +61,27 @@ Page({
     animation.translateX(-10).step();
     animation.translateX(20).step();
     animation.translateX(-10).step();
-    this.setData({ animation: animation.export() })
+    this.setData({ animation: animation.export() });
   },
   
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
+    var _this = this;
+    wx.request({
+      url: 'https://manage.5dwo.com/out/woniu8/getTestPingList.srv',
+      data: {
+        ttId: this.data.ttId,
+        curOpenId: app.getCurOpenId()
+      },
+      success: function (result) {
+        var resObj = result.data.resObj;
+        _this.setData({ pingList: resObj });
+      }
+    })
+
   },
 
   /**
@@ -176,5 +192,16 @@ Page({
       }
     }
     this.setData({ answer: answer });
-  }
+  },
+
+  testPing: function (event) {
+    wx.navigateTo({
+      url: '/pages/ceshi/ping?ttId=' + event.target.dataset.ttid,
+      success: function () {
+      },
+      complete: function () {
+      }
+    })
+  },
+
 })

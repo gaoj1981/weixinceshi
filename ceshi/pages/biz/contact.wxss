@@ -1,1 +1,20 @@
-/* pages/biz/contact.wxss */
+.logo-view{
+  width:100%;text-align:center;padding:40px 0px;border-bottom:8px solid #f2f2f2;
+}
+.logo-view image{
+  width:100px;height:100px;
+}
+.logo-view text{
+  color:#303030;font-weight:bold;display:block;margin-top:10px;
+}
+
+.single-view{border-bottom:8px solid #f2f2f2;}
+.single-view .viewBlock{display:flex;border-bottom:1px solid #f2f2f2;}
+.viewBlock .left-view{width:30%;height:50px;line-height:50px;padding-left:18px;}
+.left-view text{color:#303030;}
+.viewBlock .right-view{width:70%;text-align:right;padding-right:18px;height:50px;line-height:50px;}
+.right-view text{color:#838383;}
+
+.view-note{
+  padding-right:8px;height:50px;line-height:50px;color:#838383;font-size:14px;text-align: right;
+}

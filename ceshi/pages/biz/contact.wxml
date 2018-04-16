@@ -1,4 +1,55 @@
-<view style='width:100%;text-align:center;padding:40px 0px;border-bottom:8px solid #f2f2f2;'>
-<image src='http://static.woniu8.com/images/woniu8quceshi_small.png' style='width:100px;height:100px;'></image>
-<text style='color:#333;font-weight:bold;display:block;margin-top:10px;'>蜗牛吧趣测试</text>
+<view class='logo-view'>
+<image src='http://static.woniu8.com/images/woniu8quceshi_small.png'></image>
+<text>蜗牛吧趣测试</text>
+</view>
+
+<view class='single-view'>
+
+  <view class='viewBlock'>
+    <view class='left-view'>
+      <icon class='iconfont icon-qq1' style='color:red'></icon>
+      <text> QQ</text>
+    </view>
+    <view class='right-view'>
+      <text data-val="2640827522" bindtap='copyData'>2640827522</text>
+    </view>
+  </view>
+  
+  <view class='viewBlock'>
+    <view class='left-view'>
+      <icon class='iconfont icon-weixin' style='color:#4BB750;font-size:19px;'></icon>
+      <text> 微信</text>
+    </view>
+    <view class='right-view'>
+      <text data-val="蜗牛吧趣测试" bindtap='copyData'>蜗牛吧趣测试</text>
+    </view>
+  </view>
+  
+  <view class='viewBlock'>
+    <view class='left-view'>
+      <icon class='iconfont icon-youxiang' style='color:#FFDD1A;font-size:19px;'></icon>
+      <text> 邮箱</text>
+    </view>
+    <view class='right-view'>
+      <text data-val="www.woniu8.com@163.com" bindtap='copyData'>www.woniu8.com@163.com</text>
+    </view>
+  </view>
+  
+  <view class='viewBlock'>
+    <view class='left-view'>
+      <icon class='iconfont icon-shouji' style='color:#000;font-size:19px;'></icon>
+      <text> 手机</text>
+    </view>
+    <view class='right-view'>
+      <text data-val="17621200658" bindtap='copyData'>17621200658（高工）</text>
+    </view>
+  </view>
+  
+</view>
+
+
+<view class='single-view'>
+  <view class='view-note'>
+    <text>另，提供小程序技术定制开发，欢迎联系。</text>
+  </view>
 </view>

@@ -60,3 +60,17 @@ image{width: 100%;}
 .btn-seltest{
   margin: 10px 0px;
 }
+
+.pingHead{width:100%;text-align:center;font-weight:bold;margin:30px 0px 10px 0px;}
+.pingHead text{border-bottom:2px solid #ED0385;color:#666;}
+
+.pingLoop{display:flex;width:96%;margin:0 auto;border-bottom:1px solid #f2f2f2;font-size:12px;}
+.pingLoop .pingLeft{width:15%;padding:10px;}
+.pingLoop .pingLeft image{border-radius:50%;}
+.pingLoop .pingRight{width:88%;padding:10px;color:#666;}
+.pingRight .pingTime{display:block;color:#999;font-size:12px;}
+.pingRight .pingNote{display:block;margin-top:5px;}
+.pingRight .resNote{display:block;margin-top:5px;background-color:#f2f2f2;padding:5px;}
+
+.pingMore{width:96%;margin:0 auto;}
+.pingMore button{font-size:14px;margin-bottom:10px;}

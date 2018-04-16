@@ -64,5 +64,16 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  copyData:function(e){
+    wx.setClipboardData({
+      data: e.target.dataset.val,
+      success:function(res){
+        wx.showToast({
+          title: '已复制到剪贴板',
+        })
+      }
+    })
   }
 })

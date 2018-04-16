@@ -8,7 +8,8 @@
     "pages/my/advise/iupage",
     "pages/my/test/mytest",
     "pages/ceshi/search",
-    "pages/biz/contact"
+    "pages/biz/contact",
+    "pages/ceshi/ping"
   ],
   "window": {
     "navigationBarTitleText": "蜗牛吧趣测试",

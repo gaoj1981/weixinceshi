@@ -17,7 +17,7 @@ page{
 .icon-group .icon-zan{color: deeppink;}
 .icon-group .icon-zan1{color: deeppink;}
 .icon-group .icon-fenxiang{color: green}
-.icon-group .icon-commentfill{color: lightgray;}
+.icon-group .icon-commentfill{color: darkorange;}
 
 .icon-group button{
   width:100%;background-color:#fff;padding:0px;

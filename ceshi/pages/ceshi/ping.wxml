@@ -1,0 +1,21 @@
+<view class="section">
+  <form bindsubmit="bindFormSubmit">
+    <textarea style='border:1px solid #ccc;width:100%;padding:5px;' placeholder="亲，留下点什么吧..." name="advise"/>
+    <button style='width:110px;font-size:12px;margin:5px 10px 20px 0px;color:#ED0385;float:right;' form-type="submit">发表评论</button>
+  </form>
+</view>
+
+<view wx:if="{{pingList.length > 0}}">
+
+  <view wx:for="{{pingList}}" wx:key="key" class='pingLoop'>
+    <view class='pingLeft'>
+      <image src='{{item.userImg}}' mode='widthFix'></image>
+    </view>
+    <view class='pingRight'>
+      <text class='pingTime'>{{item.insTime}}</text>
+      <text class='pingNote'>{{item.pingNote}}</text>
+      <text wx:if="{{item.resFlg == 1}}" class='resNote'>蜗牛吧回复：{{item.resNote}}</text>
+    </view>
+  </view>
+
+</view>

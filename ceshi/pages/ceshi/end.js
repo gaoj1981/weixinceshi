@@ -334,11 +334,13 @@ Page({
     })
   },
 
-  goComment:function(){
-    wx.showToast({
-      title: '评论功能陆续开放中...',
-      icon: 'none',
-      duration: 1000
+  goComment: function () {
+    wx.navigateTo({
+      url: '/pages/ceshi/ping?ttId=' + this.data.ttId,
+      success: function () {
+      },
+      complete: function () {
+      }
     })
   }
 

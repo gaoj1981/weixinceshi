@@ -33,4 +33,25 @@
     </view>
   </view>
 </view>
-      
+
+<view wx:if="{{pingList.length > 0}}">
+  <view class='pingHead'>
+    <text>网友评论</text>
+  </view>
+
+  <view wx:for="{{pingList}}" wx:key="key" class='pingLoop'>
+    <view class='pingLeft'>
+      <image src='{{item.userImg}}' mode='widthFix'></image>
+    </view>
+    <view class='pingRight'>
+      <text class='pingTime'>{{item.insTime}}</text>
+      <text class='pingNote'>{{item.pingNote}}</text>
+      <text wx:if="{{item.resFlg == 1}}" class='resNote'>蜗牛吧回复：{{item.resNote}}</text>
+    </view>
+  </view>
+
+  <view class='pingMore'>
+    <button type="default" bindtap='testPing' data-ttname="{{testObj.ttName}}" data-ttid="{{testObj.ttId}}">查看全部评论</button>
+  </view>
+  
+</view>

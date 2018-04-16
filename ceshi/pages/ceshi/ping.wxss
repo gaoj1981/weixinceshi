@@ -1,0 +1,9 @@
+image{width: 100%;}
+
+.pingLoop{display:flex;width:96%;margin:0 auto;border-bottom:1px solid #f2f2f2;font-size:12px;}
+.pingLoop .pingLeft{width:15%;padding:10px;}
+.pingLoop .pingLeft image{border-radius:50%;}
+.pingLoop .pingRight{width:88%;padding:10px;color:#666;}
+.pingRight .pingTime{display:block;color:#999;font-size:12px;}
+.pingRight .pingNote{display:block;margin-top:5px;}
+.pingRight .resNote{display:block;margin-top:5px;background-color:#f2f2f2;padding:5px;}
