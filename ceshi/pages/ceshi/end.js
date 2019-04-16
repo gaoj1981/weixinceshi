@@ -254,7 +254,8 @@ Page({
       wx.canvasToTempFilePath({
         canvasId: 'secondCanvas',
         success: function (res) {
-          _this.setData({ resImgCav: res.tempFilePath,view3css:'need-hide' });
+          console.log(res);
+          _this.setData({ resImgCav: res.tempFilePath, view3css:'' });
         }
       })
 

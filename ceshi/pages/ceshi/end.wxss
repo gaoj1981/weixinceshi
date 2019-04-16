@@ -83,3 +83,6 @@ border: none;
 .view-loop .desc{
   font-size:10px;display:block;color:#999;width:99%;height:40px;overflow:hidden;text-overflow:ellipsis;
 }
+
+.view-adtest{margin-top: 8px;width: 100%;background-color: #F2F2F2;}
+.view-adtest ad{width: 100%;}

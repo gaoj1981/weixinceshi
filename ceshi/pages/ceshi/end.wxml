@@ -46,6 +46,10 @@
       </view>
     </view>
 
+<view class='view-adtest'>
+<ad unit-id="adunit-bd850fc1269de505" style="margin:0 auto;"></ad>
+</view>
+
     <view class='icon-group'>
       <view bindtap='goIndex'>
         <text class='iconfont icon-homefill'></text>

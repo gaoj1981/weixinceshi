@@ -16,6 +16,10 @@
 
 <view>
 
+<view>
+      <ad unit-id="adunit-bd850fc1269de505"></ad>
+</view>
+
   <view wx:for="{{testList}}" wx:key="key" class='view-loop' bindtap="testDetail">
     <view style='width:110px;' id="{{item.ttId}}">
       <image id="{{item.ttId}}" src="{{staticImg}}{{item.ttSmlImg}}" />

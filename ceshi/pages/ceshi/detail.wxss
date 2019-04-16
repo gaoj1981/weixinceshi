@@ -60,6 +60,8 @@ image{width: 100%;}
 .btn-seltest{
   margin: 10px 0px;
 }
+.view-adtest{margin-top: 18px;width: 100%;}
+.view-adtest ad{width: 100%;}
 
 .pingHead{width:100%;text-align:center;font-weight:bold;margin:30px 0px 10px 0px;}
 .pingHead text{border-bottom:2px solid #ED0385;color:#666;}
